@@ -1,15 +1,15 @@
 //
-//  TextFieldsChallengeTests.swift
-//  TextFieldsChallengeTests
+//  MemeMe1_0Tests.swift
+//  MemeMe1.0Tests
 //
-//  Created by Mykola Aleshchanov on 8/31/15.
+//  Created by Mykola Aleshchanov on 9/15/15.
 //  Copyright (c) 2015 Mykola Aleshchanov. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class TextFieldsChallengeTests: XCTestCase {
+class MemeMe1_0Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()

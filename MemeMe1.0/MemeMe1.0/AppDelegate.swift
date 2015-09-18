@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  TextFieldsChallenge
+//  MemeMe1.0
 //
-//  Created by Mykola Aleshchanov on 8/31/15.
+//  Created by Mykola Aleshchanov on 9/15/15.
 //  Copyright (c) 2015 Mykola Aleshchanov. All rights reserved.
 //
 
