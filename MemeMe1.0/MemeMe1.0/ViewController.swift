@@ -18,27 +18,37 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     ]
     
     let memeTextDelegate = MemeTextFieldDelegate()
+
+    var memeImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.topTextField.delegate = memeTextDelegate
-        self.topTextField.defaultTextAttributes = memeTextAttributes
-        self.topTextField.textAlignment = NSTextAlignment(rawValue: 1)!
-        self.topTextField.text = "TOP"
+        topTextField.delegate = memeTextDelegate
+        topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textAlignment = NSTextAlignment(rawValue: 1)!
+        topTextField.text = "TOP"
         
-        self.bottomTextField.delegate = memeTextDelegate
-        self.bottomTextField.defaultTextAttributes = memeTextAttributes
-        self.bottomTextField.textAlignment = NSTextAlignment(rawValue: 1)!
-        self.bottomTextField.text = "BOTTOM"
+        bottomTextField.delegate = memeTextDelegate
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.textAlignment = NSTextAlignment(rawValue: 1)!
+        bottomTextField.text = "BOTTOM"
     }
     
     override func viewDidAppear(animated: Bool) {
+        // Disable camera button on cameraless devices
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.subscribeToKeyboardNotification()
+        
+        // Disable sharing until meme is ready
+        if(self.imageView.image == nil) {
+            self.shareMemeButton.enabled = false
+        } else {
+            self.shareMemeButton.enabled = true
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -50,7 +60,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var shareMemeButton: UIBarButtonItem!
+    @IBOutlet weak var topToolbar: UIToolbar!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
 
+    
+    @IBAction func shareMeme(sender: AnyObject) {
+        let memeImage:UIImage = generateMemeImage()
+        let controller = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
     
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
@@ -67,6 +86,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    // When the user picks an image
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
             self.imageView.image = image
@@ -74,6 +94,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // When the user cancels
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -105,4 +126,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.view.frame.origin.y += getKeyboardHight(notification)
     }
     
+    func generateMemeImage() ->UIImage{
+        // Hide toolbars
+        topToolbar.hidden = true
+        bottomToolbar.hidden = true
+        
+        // Render meme image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memeImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // Unhide toolbars
+        topToolbar.hidden = false
+        bottomToolbar.hidden = false
+        return memeImage
+    }
+    
+    // Activity view controller
+    func save(){
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imageView.image!, memeImage: memeImage!)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

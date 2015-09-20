@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class Meme:NSObject {
-    let topText: String?
-    let bottomText: String?
+    let topText: String
+    let bottomText: String
     let image: UIImage
     let memeImage: UIImage
     init(topText: String, bottomText: String, image: UIImage, memeImage: UIImage) {
