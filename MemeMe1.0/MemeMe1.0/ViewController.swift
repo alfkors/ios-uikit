@@ -152,6 +152,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memeImage
     }
     
+    // Found help on how to add completion handler on the forum 
+    /*https://discussions.udacity.com/t/im-not-understanding-the-uiactivityviewcontroller-completionwithitemshandler/14271 */
     func saveMemeAfterSharing(activity: String?, completed: Bool, items: [AnyObject]?, error: NSError?) {
         if(completed){
             self.saveMeme()
