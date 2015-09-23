@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -19,7 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let memeTextDelegate = MemeTextFieldDelegate()
 
-    var memeImage: UIImage?
+    var memeImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.subscribeToKeyboardNotification()
         
         // Disable sharing until meme is ready
-        if(self.imageView.image == nil) {
+        if(self.imageView.image == nil){
             self.shareMemeButton.enabled = false
         } else {
             self.shareMemeButton.enabled = true
@@ -66,8 +66,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     
     @IBAction func shareMeme(sender: AnyObject) {
-        let memeImage:UIImage = generateMemeImage()
+        memeImage = generateMemeImage()
         let controller = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
+        controller.completionWithItemsHandler = saveMemeAfterSharing
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
@@ -99,34 +100,42 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func subscribeToKeyboardNotification(){
+    func subscribeToKeyboardNotification() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
     }
     
-    func unsubscribeToKeyboardNotification(){
+    func unsubscribeToKeyboardNotification() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
         
     }
     
-    func getKeyboardHight(notification:NSNotification) -> CGFloat{
+    func getKeyboardHight(notification:NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
-        return keyboardSize.CGRectValue().height
+        var keyboardHight: CGFloat
+        
+        // Slide meme image with the keyboard only for the bottom text field
+        if(bottomTextField.isFirstResponder()){
+            let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+            keyboardHight = keyboardSize.CGRectValue().height
+        } else {
+            keyboardHight = 0
+        }
+        return keyboardHight
         
     }
     
-    func keyboardWillShow(notification:NSNotification){
+    func keyboardWillShow(notification:NSNotification) {
         self.view.frame.origin.y -= getKeyboardHight(notification)
     }
     
-    func keyboardWillHide(notification:NSNotification){
+    func keyboardWillHide(notification:NSNotification) {
         self.view.frame.origin.y += getKeyboardHight(notification)
     }
     
-    func generateMemeImage() ->UIImage{
+    func generateMemeImage() -> UIImage {
         // Hide toolbars
         topToolbar.hidden = true
         bottomToolbar.hidden = true
@@ -143,9 +152,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memeImage
     }
     
+    func saveMemeAfterSharing(activity: String?, completed: Bool, items: [AnyObject]?, error: NSError?) {
+        if(completed){
+            self.saveMeme()
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        }
+    }
     // Activity view controller
-    func save(){
+    func saveMeme() {
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imageView.image!, memeImage: memeImage!)
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
