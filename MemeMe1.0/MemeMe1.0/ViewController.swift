@@ -41,19 +41,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.subscribeToKeyboardNotification()
+        subscribeToKeyboardNotification()
         
         // Disable sharing until meme is ready
-        if(self.imageView.image == nil){
-            self.shareMemeButton.enabled = false
+        if(imageView.image == nil){
+            shareMemeButton.enabled = false
         } else {
-            self.shareMemeButton.enabled = true
+            shareMemeButton.enabled = true
         }
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeToKeyboardNotification()
+        unsubscribeToKeyboardNotification()
     }
     
     @IBOutlet weak var imageView: UIImageView!
@@ -69,35 +69,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         memeImage = generateMemeImage()
         let controller = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
         controller.completionWithItemsHandler = saveMemeAfterSharing
-        self.presentViewController(controller, animated: true, completion: nil)
+        presentViewController(controller, animated: true, completion: nil)
     }
     
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func pickAnImageFromCamera(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
         
     }
     
     // When the user picks an image
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
-            self.imageView.image = image
+            imageView.image = image
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     // When the user cancels
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func subscribeToKeyboardNotification() {
@@ -128,11 +128,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(notification:NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHight(notification)
+        view.frame.origin.y -= getKeyboardHight(notification)
     }
     
     func keyboardWillHide(notification:NSNotification) {
-        self.view.frame.origin.y += getKeyboardHight(notification)
+        view.frame.origin.y += getKeyboardHight(notification)
     }
     
     func generateMemeImage() -> UIImage {
@@ -141,8 +141,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomToolbar.hidden = true
         
         // Render meme image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memeImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -156,8 +156,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     /*https://discussions.udacity.com/t/im-not-understanding-the-uiactivityviewcontroller-completionwithitemshandler/14271 */
     func saveMemeAfterSharing(activity: String?, completed: Bool, items: [AnyObject]?, error: NSError?) {
         if(completed){
-            self.saveMeme()
-            self.dismissViewControllerAnimated(true, completion: nil)
+            saveMeme()
+            dismissViewControllerAnimated(true, completion: nil)
             
         }
     }
