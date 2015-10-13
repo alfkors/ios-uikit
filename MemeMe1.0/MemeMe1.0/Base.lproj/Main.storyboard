@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,6 +20,7 @@
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1z5-zw-3bO">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
                                 <items>
                                     <barButtonItem title="Album" width="175" id="8Yl-Cx-EL5">
                                         <connections>
@@ -35,6 +36,7 @@
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaZ-Oa-6sI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
                                 <items>
                                     <barButtonItem systemItem="action" id="6Ys-eK-6Gx">
                                         <connections>
@@ -45,24 +47,22 @@
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="VXO-Kf-3Ah">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="tU4-un-eQW">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="152" y="512" width="97" height="30"/>
-                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="yhv-OM-jnB">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="152" y="96" width="97" height="30"/>
-                                </variation>
                             </textField>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="VXO-Kf-3Ah" secondAttribute="trailing" constant="30" id="3At-kW-Q0q">
@@ -97,20 +97,20 @@
                                 <exclude reference="yhv-OM-jnB"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="w04-jq-4IF"/>
+                                <exclude reference="Ij4-ez-8Rn"/>
+                                <exclude reference="Mey-qh-pel"/>
+                                <exclude reference="qen-8D-v0X"/>
+                                <exclude reference="wRd-i6-nln"/>
+                                <exclude reference="F2Y-rk-RQt"/>
+                                <exclude reference="bJG-pf-VWD"/>
+                                <exclude reference="fSD-k0-ik7"/>
                                 <exclude reference="4G5-GK-Jco"/>
                                 <exclude reference="May-g6-4Pd"/>
                                 <exclude reference="f46-EM-LhK"/>
                                 <exclude reference="3At-kW-Q0q"/>
                                 <exclude reference="Ieu-yI-Xaa"/>
                                 <exclude reference="k3V-2X-CgC"/>
-                                <exclude reference="qen-8D-v0X"/>
-                                <exclude reference="wRd-i6-nln"/>
-                                <exclude reference="Ij4-ez-8Rn"/>
-                                <exclude reference="Mey-qh-pel"/>
-                                <exclude reference="F2Y-rk-RQt"/>
-                                <exclude reference="bJG-pf-VWD"/>
-                                <exclude reference="fSD-k0-ik7"/>
-                                <exclude reference="w04-jq-4IF"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -122,20 +122,20 @@
                                 <include reference="yhv-OM-jnB"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="w04-jq-4IF"/>
+                                <include reference="Ij4-ez-8Rn"/>
+                                <include reference="Mey-qh-pel"/>
+                                <include reference="qen-8D-v0X"/>
+                                <include reference="wRd-i6-nln"/>
+                                <include reference="F2Y-rk-RQt"/>
+                                <include reference="bJG-pf-VWD"/>
+                                <include reference="fSD-k0-ik7"/>
                                 <include reference="4G5-GK-Jco"/>
                                 <include reference="May-g6-4Pd"/>
                                 <include reference="f46-EM-LhK"/>
                                 <include reference="3At-kW-Q0q"/>
                                 <include reference="Ieu-yI-Xaa"/>
                                 <include reference="k3V-2X-CgC"/>
-                                <include reference="qen-8D-v0X"/>
-                                <include reference="wRd-i6-nln"/>
-                                <include reference="Ij4-ez-8Rn"/>
-                                <include reference="Mey-qh-pel"/>
-                                <include reference="F2Y-rk-RQt"/>
-                                <include reference="bJG-pf-VWD"/>
-                                <include reference="fSD-k0-ik7"/>
-                                <include reference="w04-jq-4IF"/>
                             </mask>
                         </variation>
                     </view>

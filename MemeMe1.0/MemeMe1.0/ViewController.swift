@@ -161,8 +161,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         }
     }
+    
     // Activity view controller
     func saveMeme() {
+        //Create the meme
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imageView.image!, memeImage: memeImage!)
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        print(appDelegate.memes.count)
+        appDelegate.memes.append(meme)
+        print("Saved another meme. There are now \(appDelegate.memes.count) memes")
     }
 }
