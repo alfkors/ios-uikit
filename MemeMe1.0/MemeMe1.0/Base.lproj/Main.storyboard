@@ -63,58 +63,10 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="111" height="116"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nQa-wH-FdB">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                            <animations/>
-                                            <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="9" y="13" width="92" height="89"/>
-                                            </variation>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tp2-5r-gv8">
-                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="14" y="19" width="82" height="21"/>
-                                            </variation>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kU-eS-gwv">
-                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="19" y="73" width="72" height="21"/>
-                                            </variation>
-                                        </label>
-                                    </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <animations/>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="nQa-wH-FdB"/>
-                                        <exclude reference="tp2-5r-gv8"/>
-                                        <exclude reference="5kU-eS-gwv"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="subviews">
-                                        <include reference="nQa-wH-FdB"/>
-                                        <include reference="tp2-5r-gv8"/>
-                                        <include reference="5kU-eS-gwv"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <outlet property="bottomTextLabel" destination="5kU-eS-gwv" id="bwP-Oi-PVh"/>
-                                    <outlet property="memeImageView" destination="nQa-wH-FdB" id="ZSU-Vz-DwF"/>
-                                    <outlet property="topTextLabel" destination="tp2-5r-gv8" id="6r2-3c-u5X"/>
-                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

@@ -172,5 +172,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         print(appDelegate.memes.count)
         appDelegate.memes.append(meme)
         print("Saved another meme. There are now \(appDelegate.memes.count) memes")
+        
+        if let navigationController = self.navigationController {
+            navigationController.popToRootViewControllerAnimated(true)
+        }
     }
 }
