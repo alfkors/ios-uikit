@@ -8,11 +8,13 @@
 
 import UIKit
 
-class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SentMemesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
+    
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         print("There are \(memes.count) sent memes")
@@ -24,13 +26,12 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
             action: "newMeme")
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        self.tableView.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("The table will have \(memes.count) rows")
         return memes.count
     }
     
