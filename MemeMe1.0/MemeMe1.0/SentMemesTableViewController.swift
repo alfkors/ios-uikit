@@ -17,13 +17,6 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("There are \(memes.count) sent memes")
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem (
-            title: "New",
-            style: UIBarButtonItemStyle.Plain,
-            target: self,
-            action: "newMeme")
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,13 +35,11 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         return cell
     }
     
-    func newMeme(){
-        let storyboard = UIStoryboard (name: "Main", bundle: nil)
-        let VC = storyboard.instantiateViewControllerWithIdentifier("ViewController")
-        
-        if let navigationController = self.navigationController {
-            navigationController.pushViewController(VC, animated: true)
-        }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailVeiwController
+        detailController.meme = self.memes[indexPath.row]
+        print(detailController.meme.topText)
+        self.navigationController?.pushViewController(detailController, animated: true)
     }
 }
 

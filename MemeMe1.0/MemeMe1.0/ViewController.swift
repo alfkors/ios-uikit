@@ -169,9 +169,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Add it to the memes array in the Application Delegate
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
-        print(appDelegate.memes.count)
         appDelegate.memes.append(meme)
-        print("Saved another meme. There are now \(appDelegate.memes.count) memes")
         
         if let navigationController = self.navigationController {
             navigationController.popToRootViewControllerAnimated(true)
