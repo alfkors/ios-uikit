@@ -25,11 +25,11 @@
             </objects>
             <point key="canvasLocation" x="-2178" y="-113"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="539-8m-SXN">
             <objects>
                 <navigationController id="ppZ-hH-bZd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="7jk-VZ-kkV"/>
+                    <tabBarItem key="tabBarItem" title="" image="CollectionIcon" id="7jk-VZ-kkV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lg8-hc-DWw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -64,10 +64,32 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="111" height="116"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6HH-h8-q8S">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <animations/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="0.0" y="0.0" width="111" height="121"/>
+                                            </variation>
+                                        </imageView>
+                                    </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <animations/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="6HH-h8-q8S"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="6HH-h8-q8S"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="memeImageView" destination="6HH-h8-q8S" id="qzO-qI-h4H"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -91,11 +113,11 @@
             </objects>
             <point key="canvasLocation" x="-256.5" y="-480"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="cG5-xt-YMQ">
             <objects>
                 <navigationController id="ysK-yw-f6x" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="iQz-4J-mju"/>
+                    <tabBarItem key="tabBarItem" title="" image="TableIcon" id="iQz-4J-mju"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v0r-uO-vgu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -189,16 +211,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <animations/>
                                 <items>
-                                    <barButtonItem title="Album" width="175" id="8Yl-Cx-EL5">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="m7Y-zl-oDf"/>
+                                    <barButtonItem title="Album" id="8Yl-Cx-EL5">
                                         <connections>
                                             <action selector="pickAnImageFromAlbum:" destination="vXZ-lx-hvc" id="GOG-ra-YcS"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Camera" width="175" id="TSH-Eo-raQ">
+                                    <barButtonItem width="75" style="plain" systemItem="fixedSpace" id="es5-mQ-ERm"/>
+                                    <barButtonItem title="Camera" id="TSH-Eo-raQ">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="vXZ-lx-hvc" id="boQ-lA-nN9"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8CB-9I-Tfe"/>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaZ-Oa-6sI">
@@ -338,7 +363,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QV4-X5-uV3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QV4-X5-uV3">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                             </imageView>
@@ -346,10 +371,18 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="spd-yy-JnX" firstAttribute="top" secondItem="QV4-X5-uV3" secondAttribute="bottom" constant="135" id="2uK-EQ-f6w"/>
-                            <constraint firstItem="QV4-X5-uV3" firstAttribute="top" secondItem="Rbz-AB-Tx8" secondAttribute="bottom" constant="105" id="Deu-Od-Ojy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QV4-X5-uV3" secondAttribute="trailing" constant="27" id="FeL-o9-a5O"/>
-                            <constraint firstItem="QV4-X5-uV3" firstAttribute="leading" secondItem="UTB-Dk-boa" secondAttribute="leadingMargin" constant="27" id="uJX-KF-AaL"/>
+                            <constraint firstItem="spd-yy-JnX" firstAttribute="top" secondItem="QV4-X5-uV3" secondAttribute="bottom" constant="135" id="2uK-EQ-f6w">
+                                <variation key="widthClass=compact" constant="130"/>
+                            </constraint>
+                            <constraint firstItem="QV4-X5-uV3" firstAttribute="top" secondItem="Rbz-AB-Tx8" secondAttribute="bottom" constant="105" id="Deu-Od-Ojy">
+                                <variation key="widthClass=compact" constant="109"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="QV4-X5-uV3" secondAttribute="trailing" constant="27" id="FeL-o9-a5O">
+                                <variation key="widthClass=compact" constant="-6"/>
+                            </constraint>
+                            <constraint firstItem="QV4-X5-uV3" firstAttribute="leading" secondItem="UTB-Dk-boa" secondAttribute="leadingMargin" constant="27" id="uJX-KF-AaL">
+                                <variation key="widthClass=compact" constant="-6"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -383,6 +416,10 @@
             <point key="canvasLocation" x="1399.5" y="-447"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CollectionIcon" width="30" height="30"/>
+        <image name="TableIcon" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lAi-tc-Q1P"/>
     </inferredMetricsTieBreakers>
