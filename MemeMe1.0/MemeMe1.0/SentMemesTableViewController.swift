@@ -38,8 +38,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailVeiwController
         detailController.meme = self.memes[indexPath.row]
-        print(detailController.meme.topText)
-        self.navigationController?.pushViewController(detailController, animated: true)
+        self.navigationController!.pushViewController(detailController, animated: true)
     }
 }
 

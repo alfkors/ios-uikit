@@ -48,6 +48,7 @@
             <objects>
                 <collectionViewController title="Sent Memes Collection" id="lhX-dr-gYT" customClass="SentMemesCollectionViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="viJ-ag-4Cu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nRO-xL-MKc">
@@ -58,7 +59,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="QMN-R5-7ag" customClass="MemeCollectionViewCell" customModule="MemeMe1_0" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="111" height="116"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="111" height="116"/>
@@ -128,7 +129,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SentMemesCell" rowHeight="60" id="h08-xX-MZD">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h08-xX-MZD" id="4e4-E8-Yml">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -140,6 +141,7 @@
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="B4e-3J-mF9" id="gfc-de-Xbk"/>
+                                    <outlet property="delegate" destination="B4e-3J-mF9" id="8Rq-58-Sek"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -208,32 +210,29 @@
                                             <action selector="shareMeme:" destination="vXZ-lx-hvc" id="LOA-kI-Hc1"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0Ar-93-Ljj"/>
+                                    <barButtonItem style="plain" systemItem="cancel" id="fXA-Di-TJz">
+                                        <connections>
+                                            <action selector="cancel:" destination="vXZ-lx-hvc" id="JeL-ND-Uy3"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="VXO-Kf-3Ah">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="25" y="114" width="351" height="407"/>
-                                </variation>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="tU4-un-eQW">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="98" y="451" width="187" height="52"/>
-                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="yhv-OM-jnB">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="79" y="114" width="241" height="71"/>
-                                </variation>
                             </textField>
                         </subviews>
                         <animations/>
@@ -336,6 +335,7 @@
                         <viewControllerLayoutGuide type="bottom" id="spd-yy-JnX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UTB-Dk-boa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QV4-X5-uV3">
@@ -356,10 +356,10 @@
                                 <exclude reference="QV4-X5-uV3"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="2uK-EQ-f6w"/>
                                 <exclude reference="Deu-Od-Ojy"/>
                                 <exclude reference="FeL-o9-a5O"/>
                                 <exclude reference="uJX-KF-AaL"/>
-                                <exclude reference="2uK-EQ-f6w"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -367,10 +367,10 @@
                                 <include reference="QV4-X5-uV3"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="2uK-EQ-f6w"/>
                                 <include reference="Deu-Od-Ojy"/>
                                 <include reference="FeL-o9-a5O"/>
                                 <include reference="uJX-KF-AaL"/>
-                                <include reference="2uK-EQ-f6w"/>
                             </mask>
                         </variation>
                     </view>
