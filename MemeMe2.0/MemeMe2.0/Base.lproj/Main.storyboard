@@ -46,7 +46,7 @@
         <!--Sent Memes Collection-->
         <scene sceneID="Dlr-qA-HPU">
             <objects>
-                <collectionViewController title="Sent Memes Collection" id="lhX-dr-gYT" customClass="SentMemesCollectionViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Sent Memes Collection" id="lhX-dr-gYT" customClass="SentMemesCollectionViewController" customModule="MemeMe2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="viJ-ag-4Cu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +58,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="QMN-R5-7ag" customClass="MemeCollectionViewCell" customModule="MemeMe1_0" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="QMN-R5-7ag" customClass="MemeCollectionViewCell" customModule="MemeMe2_0" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="111" height="116"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -134,7 +134,7 @@
         <!--Sent Memes Table-->
         <scene sceneID="7dQ-UG-uyt">
             <objects>
-                <viewController title="Sent Memes Table" id="B4e-3J-mF9" customClass="SentMemesTableViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Sent Memes Table" id="B4e-3J-mF9" customClass="SentMemesTableViewController" customModule="MemeMe2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lR2-Hy-OCP"/>
                         <viewControllerLayoutGuide type="bottom" id="Moh-aP-hL3"/>
@@ -198,7 +198,7 @@
         <!--Create Meme-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="ViewController" title="Create Meme" id="vXZ-lx-hvc" customClass="ViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" title="Create Meme" id="vXZ-lx-hvc" customClass="ViewController" customModule="MemeMe2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -354,7 +354,7 @@
         <!--Meme Detail-->
         <scene sceneID="oZW-J9-j26">
             <objects>
-                <viewController storyboardIdentifier="MemeDetailViewController" title="Meme Detail" id="Xet-UT-8LR" customClass="MemeDetailVeiwController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetailViewController" title="Meme Detail" id="Xet-UT-8LR" customClass="MemeDetailVeiwController" customModule="MemeMe2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rbz-AB-Tx8"/>
                         <viewControllerLayoutGuide type="bottom" id="spd-yy-JnX"/>
