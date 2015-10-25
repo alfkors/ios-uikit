@@ -177,10 +177,10 @@
                                 <exclude reference="iJB-BE-O5V"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="lhp-8S-1bE"/>
                                 <exclude reference="QFv-wv-MAJ"/>
                                 <exclude reference="aGU-Gg-5bs"/>
                                 <exclude reference="cfX-3K-QZr"/>
-                                <exclude reference="lhp-8S-1bE"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -188,10 +188,10 @@
                                 <include reference="iJB-BE-O5V"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="lhp-8S-1bE"/>
                                 <include reference="QFv-wv-MAJ"/>
                                 <include reference="aGU-Gg-5bs"/>
                                 <include reference="cfX-3K-QZr"/>
-                                <include reference="lhp-8S-1bE"/>
                             </mask>
                         </variation>
                     </view>
