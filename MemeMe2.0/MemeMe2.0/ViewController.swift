@@ -166,7 +166,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
         
-        if let navigationController = self.navigationController {
+        if let navigationController = navigationController {
             navigationController.popToRootViewControllerAnimated(true)
         }
     }
