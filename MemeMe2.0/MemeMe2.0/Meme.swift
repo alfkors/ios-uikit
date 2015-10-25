@@ -12,10 +12,4 @@ import UIKit
 struct Meme {
     let topText, bottomText: String
     let image, memeImage: UIImage
-    init(topText: String, bottomText: String, image: UIImage, memeImage: UIImage) {
-        self.topText = topText
-        self.bottomText = bottomText
-        self.image = image
-        self.memeImage = memeImage
-    }
 }

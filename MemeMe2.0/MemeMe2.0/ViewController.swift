@@ -23,25 +23,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topTextField.delegate = memeTextDelegate
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = NSTextAlignment(rawValue: 1)!
-        topTextField.text = "TOP"
-        
-        bottomTextField.delegate = memeTextDelegate
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.textAlignment = NSTextAlignment(rawValue: 1)!
-        bottomTextField.text = "BOTTOM"
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        // Disable camera button on cameraless devices
-        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        setTextField(topTextField, text: "TOP")
+        setTextField(bottomTextField, text: "BOTTOM")
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotification()
+        
+        // Disable camera button on cameraless devices
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         // Disable sharing until meme is ready
         if(imageView.image == nil){
@@ -178,5 +169,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let navigationController = self.navigationController {
             navigationController.popToRootViewControllerAnimated(true)
         }
+    }
+    
+    func setTextField(textField: UITextField, text: String) {
+        textField.delegate = memeTextDelegate
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = NSTextAlignment(rawValue: 1)!
+        textField.text = text
     }
 }
